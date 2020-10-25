@@ -44,7 +44,7 @@ namespace UnitTest
 					s += a[y][x];
 				}
 
-				Assert::AreEqual(sum[y], s);
+				Assert::AreEqual(s, sum[y]);
 			}
 
 			// メモリ解放
