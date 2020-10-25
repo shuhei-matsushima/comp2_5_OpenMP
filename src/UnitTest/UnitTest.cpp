@@ -1,6 +1,6 @@
 #include "pch.h"
 
-// ƒƒ‚ƒŠƒŠ[ƒN‚ÌƒLƒƒƒvƒ`ƒƒ
+// ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ã®ã‚­ãƒ£ãƒ—ãƒãƒ£
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -13,7 +13,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace UnitTest
 {
 	TEST_MODULE_CLEANUP(test_module_cleanup) {
-		Assert::IsFalse(_CrtDumpMemoryLeaks());// ƒƒ‚ƒŠƒŠ[ƒNƒ`ƒFƒbƒN
+		Assert::IsFalse(_CrtDumpMemoryLeaks());// ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ãƒã‚§ãƒƒã‚¯
 	}
 
 
@@ -23,21 +23,21 @@ namespace UnitTest
 		
 		TEST_METHOD(TestMethod)
 		{
-			const int NUM_X = 16384;
-			const int NUM_Y = 16384;
+			const int NUM_X = 1000;
+			const int NUM_Y = 1000;
 			int* a[NUM_Y];
 			for (int y = 0; y < NUM_Y; y++) {
 				a[y] = (int*)malloc(NUM_X * sizeof(int));
 				for (int x = 0; x < NUM_X; x++) {
-					a[y][x] = rand();// —”‚Å‰Šú‰»
+					a[y][x] = rand();// ä¹±æ•°ã§åˆæœŸåŒ–
 				}
 			}
 
-			// ƒ‰ƒCƒuƒ‰ƒŠ‚Åˆ—
+			// ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§å‡¦ç†
 			long long sum[NUM_Y];
 			add_array(sum, a, NUM_X, NUM_Y);
 
-			// èŒ³‚ÅŒvZ‚µ‚Ä”äŠr
+			// æ‰‹å…ƒã§è¨ˆç®—ã—ã¦æ¯”è¼ƒ
 			for (int y = 0; y < NUM_Y; y++) {
 				long long s = 0;
 				for (int x = 0; x < NUM_X; x++) {
@@ -47,7 +47,7 @@ namespace UnitTest
 				Assert::AreEqual(sum[y], s);
 			}
 
-			// ƒƒ‚ƒŠ‰ğ•ú
+			// ãƒ¡ãƒ¢ãƒªè§£æ”¾
 			for (int y = 0; y < NUM_Y; y++) {
 				free(a[y]);
 			}
