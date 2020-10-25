@@ -28,10 +28,10 @@ jobs:
     - name: MSBuild
       run: msbuild src/src.sln
       
-    - name: Setup VSTest.exe
-      uses: Malcolmnixon/Setup-VSTest@v3
+#    - name: Setup VSTest.exe
+#      uses: Malcolmnixon/Setup-VSTest@v3
 
-    - name: VSTest
-      run: vstest.console src/x64/Debug/UnitTest.dll
+#    - name: VSTest
+#      run: vstest.console src/x64/Debug/UnitTest.dll
 
 # this script is written based on https://github.com/Malcolmnixon/Setup-VSTest under the MIT license.
