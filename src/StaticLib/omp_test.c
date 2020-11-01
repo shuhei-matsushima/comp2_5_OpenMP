@@ -5,12 +5,15 @@
 // a[y_max][x_max]‚Ìs—ñ‚É‚Â‚¢‚ÄAx¬•ª‚Ì˜a‚ğ‹‚ß‚Äsum‚É“ü‚ê‚é
 void add_array(long long* sum, int** a, int x_max, int y_max)
 {
-	for (int y = 0; y < y_max; y++) {
+	int y;
+    #pragma omp parallel for
+	for (y = 0; y < y_max; y++) {
 		sum[y] = 0;
 	}
 
-	for (int x = 0; x < x_max; x++) {
-		for (int y = 0; y < y_max; y++) {
+    #pragma omp parallel for
+	for (y = 0; y < y_max; y++) {
+		for (int x = 0; x < x_max; x++) {
 			sum[y] += a[y][x];
 		}
 	}
